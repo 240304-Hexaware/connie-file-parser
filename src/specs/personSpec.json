@@ -1,0 +1,18 @@
+{
+  "firstname": {
+    "startPos": 0,
+    "endPos": 14
+  },
+  "lastname": {
+    "startPos": 15,
+    "endPos": 29
+  },
+  "dob": {
+    "startPos": 30,
+    "endPos": 37
+  },
+  "email": {
+    "startPos": 38,
+    "endPos": 67
+  }
+}
