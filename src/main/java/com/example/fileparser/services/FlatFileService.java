@@ -2,7 +2,6 @@ package com.example.fileparser.services;
 
 import com.example.fileparser.exceptions.ItemNotFoundException;
 import com.example.fileparser.models.FlatFile;
-import com.example.fileparser.models.SpecificationFile;
 import com.example.fileparser.repositories.FlatFileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,10 +40,10 @@ public class FlatFileService {
     public FlatFile uploadFlatFile(String userId, MultipartFile file) throws IOException {
         String fileName = file.getOriginalFilename();
         String filePath = "./src/files/" + fileName;
-//        File savedFile = new File(filePath);
-//        try(OutputStream os = new FileOutputStream(savedFile)) {
-//            os.write(file.getBytes());
-//        }
+        File savedFile = new File(filePath);
+        try(OutputStream os = new FileOutputStream(savedFile)) {
+            os.write(file.getBytes());
+        }
         // Create new FlatFile object
         FlatFile flatFile = new FlatFile(fileName, userId, filePath);
 

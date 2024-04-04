@@ -1,7 +1,9 @@
 package com.example.fileparser.controllers;
 
+import com.example.fileparser.exceptions.ItemAlreadyExistsException;
 import com.example.fileparser.exceptions.ItemNotFoundException;
 import com.example.fileparser.models.User;
+import com.example.fileparser.models.UserDTO;
 import com.example.fileparser.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,7 +23,7 @@ public class UserController {
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
-    public User registerUser(@RequestParam("username") String username,  @RequestParam("password") String password) throws ItemNotFoundException {
+    public User registerUser(@RequestParam("username") String username,  @RequestParam("password") String password) throws ItemAlreadyExistsException {
         return userService.registerUser(username, password);
     }
 
@@ -30,17 +32,5 @@ public class UserController {
     public User loginUser(@RequestParam("username") String username, @RequestParam("password") String password) throws ItemNotFoundException {
         return userService.loginUser(username, password);
     }
-//    @GetMapping("/users")
-//    @ResponseStatus(HttpStatus.FOUND)
-//    public List<User> getAllUsers() throws ItemNotFoundException {
-//        return userService.getAllUsers();
-//    }
-
-    // delete by id not username?
-//    @DeleteMapping("/users/id/{id}")
-//    @ResponseStatus(HttpStatus.ACCEPTED)
-//    public void deleteUserById(@PathVariable String id) throws Exception {
-//        userService.deleteUserById(id);
-//    }
 
 }

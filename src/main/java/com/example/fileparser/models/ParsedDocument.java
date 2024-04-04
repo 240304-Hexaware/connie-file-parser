@@ -18,6 +18,7 @@ public class ParsedDocument extends org.bson.Document {
     private String specName;
 
 
+    // Generic Parsed Document
     public ParsedDocument(){
 
     }

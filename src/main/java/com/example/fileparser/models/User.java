@@ -6,10 +6,10 @@ import org.springframework.data.mongodb.core.mapping.FieldType;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 @Document("users")
-public class User {
+public class User  {
     @Field("_id")
-    @MongoId(FieldType.OBJECT_ID)//helps spring understand how to utilize mongo's ID objects
-    private String userId;//with that above annotation we could use String in place of ObjectId type.
+    @MongoId(FieldType.OBJECT_ID)
+    private String userId;
 
     @Field(name = "username")
     private String username;
@@ -33,4 +33,19 @@ public class User {
         this.userId = id;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

@@ -8,17 +8,12 @@ import com.example.fileparser.models.SpecificationFile;
 import com.example.fileparser.services.FlatFileService;
 import com.example.fileparser.services.ParsedDocumentService;
 import com.example.fileparser.services.SpecificationService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import jdk.jfr.ContentType;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.*;
 
 @RestController
@@ -50,7 +45,7 @@ public class FlatFileController {
 
         // get specification file from spec name
         SpecificationFile specFile = specificationService.getSpecificationFile(specName);
-        Map<String, Field> specMap = specificationService.parseSpec(specFile);
+        Map<String, Field> specMap = SpecificationService.parseSpec(specFile);
 
         List<ParsedDocument> parsedDocs = new ArrayList<>();
         Set<String> fieldNames = specMap.keySet();
@@ -81,13 +76,13 @@ public class FlatFileController {
 
     @GetMapping("/files/user")
     @ResponseStatus(HttpStatus.OK)
-    public List<ParsedDocument> getAllFilesFromUser(@RequestParam("userId") String userId) throws ItemNotFoundException {
+    public List<ParsedDocument> getAllFilesFromUser(@RequestParam("userId") String userId)  {
         return parsedDocumentService.getAllFilesFromUser(userId);
     }
 
     @GetMapping("/files/specType")
     @ResponseStatus(HttpStatus.OK)
-    public List<ParsedDocument> getAllFilesBySpecName(@RequestParam ("specName") String specName) throws ItemNotFoundException {
+    public List<ParsedDocument> getAllFilesBySpecName(@RequestParam ("specName") String specName) {
         return parsedDocumentService.getAllFilesBySpecName(specName);
     }
 
@@ -96,7 +91,6 @@ public class FlatFileController {
     @ExceptionHandler(ItemNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public String queryItemNotFound(ItemNotFoundException e) {
-        System.out.println(e.getMessage());//we would want to log this instead in the real world
         return e.getMessage();
     }
 

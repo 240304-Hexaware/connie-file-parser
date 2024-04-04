@@ -21,7 +21,7 @@ import java.util.Set;
 @Service
 public class SpecificationService {
 
-    private SpecificationRepository specificationRepository;
+    private final SpecificationRepository specificationRepository;
 
     @Autowired
     public SpecificationService(SpecificationRepository specificationRepository) {
@@ -53,11 +53,11 @@ public class SpecificationService {
     public SpecificationFile uploadSpecificationFile(String userId, MultipartFile specFile) throws IOException{
         String fileName = specFile.getOriginalFilename();
         String filePath = "./src/specs/" + fileName;
-//        File savedFile = new File(filePath);
-//        //convert MultipartFile specFile to File savedFile and save to given path
-//        try(OutputStream os = new FileOutputStream(savedFile)) {
-//            os.write(specFile.getBytes());
-//        }
+        File savedFile = new File(filePath);
+        //convert MultipartFile specFile to File savedFile and save to given path
+        try(OutputStream os = new FileOutputStream(savedFile)) {
+            os.write(specFile.getBytes());
+        }
         SpecificationFile specificationFile = new SpecificationFile(userId, filePath, fileName);
         return specificationRepository.save(specificationFile);
     }

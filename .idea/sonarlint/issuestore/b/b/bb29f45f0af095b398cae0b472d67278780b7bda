@@ -1,0 +1,23 @@
+
+w	java:S125"<This block of commented-out lines of code should be removed.(œ»ëÅJ$b1c19cab-ceb0-4385-845e-524fb4711f71
+”
+java:S1128"LRemove this unused import 'com.example.fileparser.models.SpecificationFile'.(“û«ğşÿÿÿÿ8´Û’Ìê1J$f3abc393-4102-4137-8a8b-0ce951e1cd34
+ˆ
+java:S1128"ERemove this unused import 'com.example.fileparser.parser.FileParser'.(¨¨õ8´Û’Ìê1J$b53c7124-399e-4b66-b9fe-98d6ce86685d
+™
+java:S1128"QRemove this unused import 'com.example.fileparser.services.SpecificationService'.(ĞĞ¨ûÿÿÿÿ8µÛ’Ìê1J$0b856d78-b9db-4ab3-9fad-e11327a3bc42
+‹
+java:S1128	"HRemove this unused import 'org.springframework.context.annotation.Bean'.(‚î‰Ş8µÛ’Ìê1J$6da0ec04-7581-4655-b681-938d13111682
+£
+java:S1128
+"[Remove this unused import 'org.springframework.web.servlet.config.annotation.CorsRegistry'.(âÁ’©şÿÿÿÿ8¶Û’Ìê1J$63847112-bb95-4f96-ad00-257d5bb89ce2
+§
+java:S1128"_Remove this unused import 'org.springframework.web.servlet.config.annotation.WebMvcConfigurer'.(’µ¥Êÿÿÿÿÿ8¶Û’Ìê1J$853a14c7-e1e2-42a0-8add-39fe8bfbb002
+l
+java:S1128")Remove this unused import 'java.io.File'.(†Ğ¥Å8¶Û’Ìê1J$1c0284da-1107-4894-a7de-69b2adbc0530
+R
+java:S1128"0Remove this unused import 'java.io.IOException'.(ªº»Úıÿÿÿÿ8Šª“Ìê1
+v
+java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8¶Û’Ìê1J$eda47e69-54c3-419b-ba15-045f4d22ceba
+r
+java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ8¶Û’Ìê1J$f3e75aa1-7e41-435b-a302-319af7ad801c

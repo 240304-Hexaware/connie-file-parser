@@ -18,7 +18,7 @@ import java.util.Map;
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 public class FileParserApplication  {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args)  {
 
 		SpringApplication.run(FileParserApplication.class, args);
 
@@ -36,19 +36,8 @@ public class FileParserApplication  {
 //		Map map = fp.parseSpec(spec);
 //
 //		System.out.println(fp.parseFileToJson(fileToString, map));
-
-
 	}
 
-	@Bean
-	public WebMvcConfigurer corsConfigurer() {
-		return new WebMvcConfigurer() {
-			@Override
-			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/files").allowedOrigins("http://localhost:4200");
-			}
-		};
-	}
 
 
 }

@@ -1,9 +1,5 @@
 package com.example.fileparser.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.FieldType;
@@ -18,22 +14,11 @@ public class FlatFile {
     @Field(name = "fileName")
     private String fileName;
 
-//    @Field (name = "specificationId")
-//    private String specificationId;
-
     @Field(name = "userId")
     private String userId;
 
     @Field (name = "filePath")
     private String filePath;
-
-//    public FlatFile(String fileName, String specificationId, String userId, String filePath) {
-//        this.fileName = fileName;
-//        this.specificationId = specificationId;
-//        this.userId = userId;
-//        this.filePath = filePath;
-//
-//    }
 
     public FlatFile(String fileName, String userId, String filePath) {
         this.fileName = fileName;
@@ -58,14 +43,6 @@ public class FlatFile {
         this.fileName = fileName;
     }
 
-//    public void setSpecificationId(String specificationType) {
-//        this.specificationId = specificationId;
-//    }
-//
-//    public String getSpecificationId() {
-//        return specificationId;
-//    }
-
     public String getUserId() {
         return userId;
     }
@@ -82,11 +59,4 @@ public class FlatFile {
         this.filePath = filePath;
     }
 
-//    public long getFileSize() {
-//        return fileSize;
-//    }
-//
-//    public void setFileSize(long fileSize) {
-//        this.fileSize = fileSize;
-//    }
 }

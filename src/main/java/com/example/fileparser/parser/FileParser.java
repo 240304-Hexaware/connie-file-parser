@@ -3,7 +3,6 @@ package com.example.fileparser.parser;
 import com.example.fileparser.models.Field;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.bson.BsonDocument;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -73,9 +72,8 @@ public class FileParser {
      * @param flatFileData     - the String representation of a flat file
      * @param specificationMap - the map of tokens, mapping field name to Field
      * @return A list of strings, with each string representing one field value from the flat file
-     * @throws IOException
      */
-    public List<String> readStringFields(String flatFileData, Map<String, Field> specificationMap) throws IOException {
+    public List<String> readStringFields(String flatFileData, Map<String, Field> specificationMap)  {
         List<String> fieldValuesList = new ArrayList<>();
 
         Set<String> fieldNames = specificationMap.keySet();
@@ -84,7 +82,6 @@ public class FileParser {
             // remove whitespace
             String fieldValue = flatFileData.substring(field.getStartPos(), field.getEndPos() + 1).trim();
             fieldValuesList.add(fieldValue);
-            System.out.println("[" + fieldName + "][" + fieldValue + "]");
         }
         return fieldValuesList;
     }
@@ -101,7 +98,7 @@ public class FileParser {
     public List<String> parseFileToJson(String flatFileData, Map<String, Field> specificationMap) throws IOException {
         // maps field name to field value
 
-        List list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
 
         Set<String> fieldNames = specificationMap.keySet();
         int offset = 0;

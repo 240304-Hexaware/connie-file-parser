@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 public class ParsedDocumentService {
-    private ParsedDocumentRepository parsedDocumentRepository;
+    private final ParsedDocumentRepository parsedDocumentRepository;
 
     @Autowired
     public ParsedDocumentService(ParsedDocumentRepository parsedDocumentRepository) {
