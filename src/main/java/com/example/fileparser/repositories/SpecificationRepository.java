@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface SpecificationRepository extends MongoRepository<SpecificationFile, String>{
     Optional<SpecificationFile> findByName (String name);
 
+    Boolean existsByName (String name);
+
 }

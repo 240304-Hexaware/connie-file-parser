@@ -1,5 +1,6 @@
 package com.example.fileparser.services;
 
+import com.example.fileparser.exceptions.ItemAlreadyExistsException;
 import com.example.fileparser.exceptions.ItemNotFoundException;
 import com.example.fileparser.models.Field;
 import com.example.fileparser.models.SpecificationFile;
@@ -50,8 +51,11 @@ public class SpecificationService {
         return map;
     }
 
-    public SpecificationFile uploadSpecificationFile(String userId, MultipartFile specFile) throws IOException{
+    public SpecificationFile uploadSpecificationFile(String userId, MultipartFile specFile) throws IOException, ItemAlreadyExistsException{
         String fileName = specFile.getOriginalFilename();
+        if (specificationRepository.existsByName(fileName)){
+            throw new ItemAlreadyExistsException("there is already a spec file by name: " + fileName);
+        }
         String filePath = "./src/specs/" + fileName;
         File savedFile = new File(filePath);
         //convert MultipartFile specFile to File savedFile and save to given path

@@ -19,10 +19,10 @@ import java.util.*;
 @RestController
 @CrossOrigin(origins="*")
 public class FlatFileController {
-    private FlatFileService flatFileService;
-    private SpecificationService specificationService;
+    private final FlatFileService flatFileService;
+    private final SpecificationService specificationService;
 
-    private ParsedDocumentService parsedDocumentService;
+    private final ParsedDocumentService parsedDocumentService;
 
     @Autowired
     public FlatFileController(FlatFileService flatFileService, SpecificationService specificationService, ParsedDocumentService parsedDocumentService){
@@ -91,6 +91,7 @@ public class FlatFileController {
     @ExceptionHandler(ItemNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public String queryItemNotFound(ItemNotFoundException e) {
+        System.out.println(e.getMessage());//we would want to log this instead in the real world
         return e.getMessage();
     }
 

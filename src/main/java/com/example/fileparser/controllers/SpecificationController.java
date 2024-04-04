@@ -1,5 +1,7 @@
 package com.example.fileparser.controllers;
 
+import com.example.fileparser.exceptions.ItemAlreadyExistsException;
+import com.example.fileparser.exceptions.ItemNotFoundException;
 import com.example.fileparser.models.SpecificationFile;
 import com.example.fileparser.services.SpecificationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +32,7 @@ public class SpecificationController {
     // upload file
     @PostMapping("spec")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public SpecificationFile uploadSpecification(@RequestParam String userId, @RequestParam ("specFile") MultipartFile specFile) throws IOException {
+    public SpecificationFile uploadSpecification(@RequestParam String userId, @RequestParam ("specFile") MultipartFile specFile) throws IOException, ItemAlreadyExistsException {
         return specificationService.uploadSpecificationFile(userId, specFile);
     }
 
